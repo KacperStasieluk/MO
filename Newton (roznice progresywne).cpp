@@ -3,16 +3,16 @@
 
 int main()
 {
-    const int ELEMENTY = 4;
-    double x = 2.5;
+    const int ELEMENTY = 5;
+    double x = 1.0;
 
-    int tabX[ELEMENTY] = { 1, 2, 3, 4};
-    int tabY[ELEMENTY] = { 3, 7, 8, 15};
+    int tabX[ELEMENTY] = { -4, -2, 0, 2, 4};
+    int tabY[ELEMENTY] = { 354, 24, -2, -12, 90};
     double I_rz[ELEMENTY - 1];
     double II_rz[ELEMENTY - 2];
     double III_rz[ELEMENTY - 3];
     double IV_rz;
-    int h = tabX[1] - tabX[0];
+    int h = abs(tabX[1] - tabX[0]);
 
     for (int j = 0; j < ELEMENTY; j++)
     {
