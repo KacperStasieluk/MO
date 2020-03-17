@@ -3,8 +3,8 @@
 
 int main()
 {
-    const int ELEMENTY = 5;
-    double x = 1.0;
+    const int ELEMENTY = 5; //LICZBA ELEMENTOW - MUSI BYC TAKA SAMA JAK LICZBA ELEMENTOW tabX oraz tabY
+    double x = 1.0; //NIEWIADOMA DLA KTOREJ OBLICZAMY WYNIK WIELOMIANU
 
     int tabX[ELEMENTY] = { -4, -2, 0, 2, 4};
     int tabY[ELEMENTY] = { 354, 24, -2, -12, 90};
@@ -14,7 +14,7 @@ int main()
     double IV_rz;
     int h = abs(tabX[1] - tabX[0]);
 
-    for (int j = 0; j < ELEMENTY; j++)
+    for (int j = 0; j < ELEMENTY; j++) //OBLICZY TYLKO TYLE ILE TRZEBA
     {
         if (j == 0)
         {
@@ -43,10 +43,11 @@ int main()
         }
     }
 
-    if (ELEMENTY == 2) std::cout << tabY[0] + ((I_rz[0] / (1 * pow(h, 1))) * (x - 1)) << std::endl;
-    else if (ELEMENTY == 3) std::cout << tabY[0] + ((I_rz[0] / (1 * pow(h, 1))) * (x - 1)) + ((II_rz[0] / (2 * pow(h, 2))) * (x - 1) * (x - 2)) << std::endl;
-    else if (ELEMENTY == 4) std::cout << tabY[0] + ((I_rz[0] / (1 * pow(h, 1))) * (x - 1)) + ((II_rz[0] / (2 * pow(h, 2))) * (x - 1) * (x - 2)) + ((III_rz[0] / (6 * pow(h, 3))) * (x - 1) * (x - 2) * (x - 3)) << std::endl;
-    else if (ELEMENTY == 5) std::cout << tabY[0] + ((I_rz[0] / (1 * pow(h, 1))) * (x - 1)) + ((II_rz[0] / (2 * pow(h, 2))) * (x - 1) * (x - 2)) + ((III_rz[0] / (6 * pow(h, 3))) * (x - 1) * (x - 2) * (x - 3)) + ((IV_rz / (24 * pow(h, 4))) * (x - 1) * (x - 2) * (x - 3) * (x - 4)) << std::endl;
+    //ZWROCENIE WYNIKU W ZALEZNOSCI OD OBLICZANEGO RZEDU:
+    if (ELEMENTY == 2) std::cout << tabY[0] + ((I_rz[0] / (1 * pow(h, 1))) * (x - tabX[0])) << std::endl;
+    else if (ELEMENTY == 3) std::cout << tabY[0] + ((I_rz[0] / (1 * pow(h, 1))) * (x - tabX[0])) + ((II_rz[0] / (2 * pow(h, 2))) * (x - tabX[0]) * (x - tabX[1])) << std::endl;
+    else if (ELEMENTY == 4) std::cout << tabY[0] + ((I_rz[0] / (1 * pow(h, 1))) * (x - tabX[0])) + ((II_rz[0] / (2 * pow(h, 2))) * (x - tabX[0]) * (x - tabX[1])) + ((III_rz[0] / (6 * pow(h, 3))) * (x - tabX[0]) * (x - tabX[1]) * (x - tabX[2])) << std::endl;
+    else if (ELEMENTY == 5) std::cout << tabY[0] + ((I_rz[0] / (1 * pow(h, 1))) * (x - tabX[0])) + ((II_rz[0] / (2 * pow(h, 2))) * (x - tabX[0]) * (x - tabX[1])) + ((III_rz[0] / (6 * pow(h, 3))) * (x - tabX[0]) * (x - tabX[1]) * (x - tabX[2])) + ((IV_rz / (24 * pow(h, 4))) * (x - tabX[0]) * (x - tabX[1]) * (x - tabX[2]) * (x - tabX[3])) << std::endl;
 
     return 0;
 }
