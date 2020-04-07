@@ -28,7 +28,7 @@ def funkcja(a, b):
     suma = 0
     wartosc = 0
     def wzor(x): 
-        return math.sin(1.4*x+0.3)/(2.3 + math.cos(0.4 * x**2 + 1)) #Tu wpisujemy wzór naszej funkcji
+        return (1.4*x+0.3)/(2.3 + math.cos(0.4 * x**2 + 1)) #Tu wpisujemy wzór naszej funkcji
     for i in range(n):
         wartosc = wagi[i]*wzor(((a - b)/2)*wezly[i]+((a + b)/2))
         suma += wartosc
