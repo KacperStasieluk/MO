@@ -1,0 +1,61 @@
+import math
+import numpy as np
+
+def oblicz_calke_lambda(poczatek_p, koniec_p, ind):
+    def funkcja(x):
+        return funkcja_p(x)*math.pow(tablica_wielomianow[ind], 2)
+
+    h = (koniec_p-poczatek_p)/100
+
+    punkty = [None] * (101)
+    punkty[0] = poczatek_p
+    punkty[100] = koniec_p
+
+    for i in range(1,100):
+        punkty[i] = poczatek_p + (i/100)*(koniec_p-poczatek_p)
+
+    def wynik():
+        wartosc = 0
+        wartosc += funkcja(punkty[0])/2
+        for i in range(1,100):
+            wartosc += funkcja(punkty[i])
+        wartosc += funkcja(punkty[100])/2
+        return h*wartosc
+
+    return(wynik())
+
+
+def funkcja_p(x):
+    return 1
+
+def funkcja_f(x):
+    return math.exp(x)
+
+x = 1
+a = float(input("Podaj dolna wartosc przedzialu: "))
+b = float(input("Podaj gorna wartosc przedzialu: "))
+n = int(input("Podaj stopien wielomianu: "))
+suma = 0
+
+tablica_wielomianow = [None for i in range(n+1)]
+tablica_wielomianow[0] = 1
+tablica_wielomianow[1] = x
+for j in range(2, n+1):
+    tablica_wielomianow[j] = (1/j)*(2*j)*x*tablica_wielomianow[j-1] - tablica_wielomianow[j-2]
+    print("Wielomian[",j,"]:", tablica_wielomianow[j])
+
+C = [None for i in range(n+1)]
+Lambda = [None for i in range(n+1)]
+
+for i in range(n+1):
+    Lambda[i] = oblicz_calke_lambda(a, b, i)
+    print("Lambda[",i,"]:",Lambda[i])
+
+#for i in range(n+1):
+   # C[i] = (1/Lambda[i])* oblicz_calke(a, b, 1) * funkcja_bazowa(x, n, i) * funkcja_f(x)
+   # print("C[",i,"]:",C[i])
+
+#for i in range(n+1):
+    #suma += C[i] * funkcja_bazowa(x, n, i)
+
+#print(suma)
