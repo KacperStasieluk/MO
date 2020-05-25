@@ -54,7 +54,7 @@ def pe():
     return 1
 
 def F(x):
-    return math.exp(x)
+    return math.sqrt(2 * (x**3) - x + 9)
 
 poczatek = float(input("Podaj początek przedziału: "))
 koniec = float(input("Podaj koniec przedziału: "))
