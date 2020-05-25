@@ -40,7 +40,7 @@ def funkcja_p(x):
     return 1
 
 def funkcja_f(x):
-    return math.sqrt(x)
+    return math.sqrt(2 * (x**3) - x + 9)
 
 x = 1
 a = float(input("Podaj dolna wartosc przedzialu: "))
