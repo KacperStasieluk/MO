@@ -15,19 +15,19 @@ def funkcja(zmienna, poch):
 a = float(input("Podaj początek przedziału: "))
 b = float(input("Podaj koniec przedziału: "))
 e = float(input("Podaj dokładność: "))
-def styczne(p, k):
+def styczne():
     global x0, x1
-    if((funkcja(p, 2) >= 0 and funkcja(p, 0) >= 0) or (funkcja(p, 2) < 0 and funkcja(p, 0) < 0)):
-        x0 = p
-    else: x0 = k
+    if(funkcja(a, 0) * funkcja(a, 2) > 0):
+        x0 = a
+    else: x0 = b
     def petla():
         global x0, x1
         x1 = x0 - (funkcja(x0, 0)/funkcja(x0, 1))
-        if(abs(funkcja(x0, 0)) <= e and abs(x1 - x0) <= e):
+        if(abs(funkcja(x1, 0)) > e or abs(x1 - x0) > e):
             x0 = x1
             petla()
     petla()
     print(x1)
 
-if((funkcja(a, 1) * funkcja(b, 1) >= 0) and (funkcja(a, 2) * funkcja(b, 2) >= 0)): styczne(a, b)
+if((funkcja(a, 1) * funkcja(b, 1) >= 0) and (funkcja(a, 2) * funkcja(b, 2) >= 0)): styczne()
 else: print("Warunek konieczny nie został spełniony!")
