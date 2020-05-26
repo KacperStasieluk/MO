@@ -29,5 +29,10 @@ def styczne():
     petla()
     print(x1)
 
-if((funkcja(a, 1) * funkcja(b, 1) >= 0) and (funkcja(a, 2) * funkcja(b, 2) >= 0)): styczne()
+if((funkcja(a, 1) * funkcja(b, 1) >= 0) and (funkcja(a, 2) * funkcja(b, 2) >= 0)):
+    print("Warunki zbieżności zostały spełnione!")
+else: 
+    print("Warunki zbieżności NIE zostały spełnione!")
+
+if(funkcja(a, 0) * funkcja(b, 0) < 0): styczne()
 else: print("Warunek konieczny nie został spełniony!")
