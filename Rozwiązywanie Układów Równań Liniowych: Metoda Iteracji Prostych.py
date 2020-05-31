@@ -2,7 +2,7 @@ import math
 
 wiersze = int(input("Ile równań podasz? "))
 kolumny = int(input("Podaj liczbę współczyników równania: "))
-dokladnosc = float(input("Podaj dokładność: "))
+e = float(input("Podaj dokładność: "))
 
 tab = [[None] * (kolumny + 1)] * wiersze
 tabX = [0 for i in range(wiersze)]
@@ -15,14 +15,14 @@ for i in range(wiersze ):
 
 for i in range(wiersze):
     for j in range(kolumny + 1):
-        tab[i][j] /= tab[i][i]
+        if(tab[i][i] != 0): tab[i][j] /= tab[i][i]
         if(i == j): tab[i][j] = 0
         if(j != kolumny): tab[i][j] *= -1
 
 def petla():
 
     warunek = 3
-    for i in range(wiersze + 1):
+    for i in range(wiersze):
 
         nowaWartosc = 0
         for j in range(kolumny + 1):
@@ -33,10 +33,10 @@ def petla():
         if(abs(kolejnytabX[i] - tabX[i]) < e): warunek -= 1
     if(warunek == 0):
         print("Rozwiązania to:")
-        for i in range(wiersze + 1):
+        for i in range(wiersze):
             print(kolejnytabX[i])
     else:
-        for i in range(wiersze + 1):
+        for i in range(wiersze):
             tabX[i] = kolejnytabX[i]
         petla()
 
