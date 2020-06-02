@@ -2,6 +2,8 @@ import math
 
 e = float(input("Podaj dokładność: "))
 
+#WPROWADZAMY WSPÓŁCZYNNIKI RAZEM Z WYRAZAMI WOLNYMI
+#DO JEDNEJ MACIERZY:
 tab = [[3,1,2,5],
        [1,-4,1,-7],
        [1,2,3,2]]
