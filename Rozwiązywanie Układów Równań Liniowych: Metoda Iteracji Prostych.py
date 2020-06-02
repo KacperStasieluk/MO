@@ -8,6 +8,7 @@ tab = [[3,1,2,5],
 
 wiersze = len(tab)
 kolumny = len(tab[0]) - 1
+iteracje = 0
 
 tabX = [0 for i in range(wiersze)]
 kolejnytabX = [0 for i in range(wiersze)]
@@ -26,21 +27,23 @@ for i in range(wiersze):
         tab[i][j] *= -1
 
 def petla():
-
+    global iteracje
+    iteracje += 1
     warunek = 3
-    for i in range(wiersze):
 
+    for i in range(wiersze):
         nowaWartosc = 0
         for j in range(kolumny + 1):
             if(j != kolumny): nowaWartosc += tab[i][j] * kolejnytabX[j]
             else: nowaWartosc += tab[i][j]
         kolejnytabX[i] = nowaWartosc
-
         if(abs(kolejnytabX[i] - tabX[i]) < e): warunek -= 1
+
     if(warunek == 0):
         print("Rozwiązania to:")
         for i in range(wiersze):
             print(kolejnytabX[i])
+        print("Iteracje:",iteracje)
     else:
         for i in range(wiersze):
             tabX[i] = kolejnytabX[i]
